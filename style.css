@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background-image: url("imagens/fundo.jpg");
+    background-size: cover;      /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;/* Evita repetição */
+    background-color: rgb(237, 238, 255) ;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logostyle {
+    width: 100px;
+    height: auto;
+    margin: 0px;
+    position: absolute;
+}
+
+.menu-sanduiche {
+    width: 25px;
+    height: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    position: absolute;
+    top: 20px;        /* distância do topo */
+    right: 20px;      /* posiciona à direita */
+}
+
+.menu-sanduiche span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;  /* cor branca */
+    border-radius: 5px;       /* deixa arredondado */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+header {
+    width: 100%;
+    padding: 10px 10px 40px;
+
+    display: flex;                     /* permite alinhamento horizontal */
+    justify-content: space-between;    /* logo à esquerda, menu à direita */
+    align-items: center; 
+
+
+    background: rgba(255, 255, 255, 0.15); /* transparência */
+    backdrop-filter: blur(15px);           /* efeito vidro */
+    -webkit-backdrop-filter: blur(15px);   /* efeito no Safari */
+
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    position: fixed;   /* fica fixo no topo */
+    top: 0;
+    left: 0;
+
+    z-index: 999;      /* garante que fique na frente */
+}
+
+main{
+    height: 100px;               /* altura total da tela */
+    display: absolute;
+    justify-content: center;     /* centraliza horizontalmente */
+    align-items: center;         /* centraliza verticalmente */
+}
+
+.menu-opcoes {
+    position: absolute;
+    top: 70px;
+    right: 30px;
+
+    /* VIDRO NUBLADO */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+    /* ANIMAÇÃO */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.menu-opcoes a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu-opcoes a:hover {
+    color: #5249ff;
+}
+
+/* MENU ABERTO */
+.menu-opcoes.ativo {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+/*CORPO COM O WHATSAPP*/
+
+.cta {
+    width: 100%;
+    min-height: 60vh;
+
+    position: absolute;
+    top: 600px;
+    left: 14%;
+
+    display: absolute;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+.cta-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    max-width: 1100px;
+    width: 100%;
+}
+
+.cta-imagem img {
+    max-width: 500px;
+    width: 150rem;
+    height: auto;
+}
+
+.cta-texto {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cta-sub {
+    font-size: 50px;
+    letter-spacing: 4px;
+}
+
+.cta-texto h2 {
+    font-size: 100px;
+    margin: 10px 0 20px;
+}
+
+.cta-gratis {
+    margin-top: 10px;
+    font-size: 35px;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+
+    padding: 14px 32px;
+    border-radius: 85px;
+
+    text-decoration: none;
+    font-size: 85px;
+    font-weight: bold;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    background: #1ebe5d;
+}
+
+@media (max-width: 768px) {
+
+    .cta-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .cta-texto {
+        align-items: center;
+    }
+
+    .cta-texto h2 {
+        font-size: 32px;
+    }
+
+    .cta-imagem img {
+        max-width: 220px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*TO FAZENDO O VIDRO PRINCIPAL*/
+
+.hero {
+    width: 50px;
+    height: 10px;
+    position: absolute;
+
+    display:flex;
+    align-items: center;       /* centraliza vertical */
+    padding-left: 2px;        /* afasta da esquerda */
+}
+
+.glass-box {
+    position: absolute;
+    top: 55px;
+    left: 16px;
+    right: 30px;
+
+    width: 440px;       /* metade da tela */
+    height: 320px;
+
+    margin: 10px 100px 10px 10px;
+
+    padding: 20px 35px 35px 35px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    color: white;
+
+    /*display: absolute;
+    flex-direction: column;
+    justify-content: center;*/
+}
+
+.texto-section-titulo {
+    font-size: 65px;
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+
+.texto-section {
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+.texto-section strong {
+    font-size: 70px;
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 1270px;
+
+    padding: 2px;
+
+    width: 100%;
+    height: 100px;            /* ALTURA FIXA */
+
+    display: flex;            /* ativa flexbox */
+    align-items: center;      /* centraliza vertical */
+    justify-content: center;  /* centraliza horizontal */
+
+    background: rgba(2, 0, 31, 0.9);
+
+    z-index: 1000;
+}
+
+.logoRodape {
+    padding: 4px 4px 4px 20px;
+    margin-left: 10px;
+}
+.textofooter1 {
+    color: white;
+    font-size: 18px;
+    margin-left: 50px;
+    padding: 10px 10px 10px 25px;
+}
+.textofooter2 {
+    color: white;
+    font-size: 18px;
+    margin-left: 50px;
+    padding: 10px 10px 10px 2px;
+}
+.textofooter3 {
+    color: white;
+    font-size: 18px;
+    margin-left: 50px;
+    padding: 10px 10px 10px 2px;
+}
+
+.imagenscomlink {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* espaço entre os ícones */
+}
+
+.imagenscomlink img {
+    width: 30px;  /* tamanho dos ícones */
+    height: 30px;
+    cursor: pointer;
+}
+
+.imagenscomlink a:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .imagenscomlink {
+        justify-content: center;
+    }
+
+    .imagenscomlink img {
+        width: 28px;
+    }
+}
+

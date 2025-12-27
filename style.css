@@ -1,0 +1,449 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.imagemfundo {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+
+body {
+
+    background-color: rgb(175, 179, 255) ;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.logostyle {
+    width: 100px;
+    height: auto;
+    margin: 0px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.menu-sanduiche {
+    width: 25px;
+    height: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.menu-sanduiche span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;  /* cor branca */
+    border-radius: 5px;       /* deixa arredondado */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+header {
+    width: 100%;
+    padding: 10px 10px 40px;
+
+    display: flex;                     /* permite alinhamento horizontal */
+    justify-content: space-between;    /* logo à esquerda, menu à direita */
+    align-items: center; 
+
+
+    background: rgba(255, 255, 255, 0.15); /* transparência */
+    backdrop-filter: blur(15px);           /* efeito vidro */
+    -webkit-backdrop-filter: blur(15px);   /* efeito no Safari */
+
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    position: fixed;   /* fica fixo no topo */
+    top: 0;
+    left: 0;
+
+    z-index: 999;      /* garante que fique na frente */
+}
+
+@media (max-width: 768px) {
+    header {
+        max-width: 100%;               /* ocupa 90% da largura da tela */
+        padding: 10px 20px;           /* ajusta o padding para valores razoáveis */
+    }
+}
+
+
+main{
+    min-height: 100vh;           /* altura mínima da tela ao invés de fixa 100px */
+    display: flex;
+    justify-content: left;     /* centraliza horizontalmente */
+    align-items: center;         /* centraliza verticalmente */
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;      /* empilha verticalmente */
+        height: auto;                /* altura automática */
+        padding: 20px;               /* adiciona padding */
+    }
+}
+
+
+
+.menu-opcoes {
+    position:   absolute;
+    top: 70px;
+    right: 30px;
+
+    /* VIDRO NUBLADO */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+    /* ANIMAÇÃO */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-opcoes {
+        right: 10px;
+        top: 60px;
+    }
+}
+
+.menu-opcoes a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu-opcoes a:hover {
+    color: #5249ff;
+}
+
+
+
+/* MENU ABERTO */
+.menu-opcoes.ativo {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .menu-opcoes.ativo {
+        right: 10px;
+        top: 60px;
+    }
+}
+
+
+
+
+
+
+
+/*CORPO COM O WHATSAPP*/
+
+.cta {
+    width: 100%;
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+.cta-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    max-width: 1100px;
+    width: 100%;
+}
+
+.cta-imagem img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.cta-texto {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cta-sub {
+    font-size: clamp(20px, 4vw, 40px);
+    letter-spacing: 4px;
+}
+
+.cta-texto h2 {
+    font-size: clamp(32px, 6vw, 64px);
+    margin: 10px 0 20px;
+}
+
+.cta-gratis {
+    margin-top: 10px;
+    font-size: 35px;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+
+    padding: 12px 28px;
+    border-radius: 85px;
+
+    text-decoration: none;
+    font-size: clamp(18px, 4vw, 28px);
+
+    font-weight: bold;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    background: #1ebe5d;
+}
+
+@media (max-width: 768px) {
+
+    .cta-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .cta-texto {
+        align-items: center;
+    }
+
+    .cta-texto h2 {
+        font-size: 32px;
+    }
+
+    .cta-imagem img {
+        max-width: 220px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*TO FAZENDO O VIDRO PRINCIPAL*/
+
+.hero {
+    width: 100%;
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 120px 20px 40px;         /* afasta da esquerda */
+}
+
+.glass-box {
+    width: 100%;
+    max-width: 440px;
+
+    padding: 24px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    color: white;
+
+    /*display: absolute;
+    flex-direction: column;
+    justify-content: center;*/
+}
+
+.texto-section-titulo {
+    font-size: clamp(32px, 6vw, 65px);
+    font-weight: 700;
+    color: black;
+}
+
+.texto-section {
+    font-size: clamp(18px, 4vw, 30px);
+    margin-top: 5px;
+    color: black;
+}
+
+.texto-section strong {
+    font-size: clamp(36px, 7vw, 70px);
+    font-weight: 800;
+    color: black;
+}
+@media (max-width: 768px) {
+    .hero {
+        justify-content: center;
+        padding: 80px 20px 40px;
+    }
+
+    .glass-box {
+        max-width: 100%;
+        text-align: center;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    width: 100%;
+    min-height: 120px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 20px;
+
+
+    align-items: center;      /* centraliza vertical */
+    justify-content: center;  /* centraliza horizontal */
+
+    background: rgba(2, 0, 31, 0.9);
+
+    z-index: 3500;
+}
+
+.logoRodape {
+    padding: 4px 4px 4px 20px;
+    margin-left: 10px;
+}
+.textofooter1 {
+    color: white;
+    font-size: 18px;
+    margin-left: 50px;
+    padding: 10px 10px 10px 25px;
+}
+.textofooter2 {
+    color: white;
+    font-size: 18px;
+    margin-left: 50px;
+    padding: 10px 10px 10px 2px;
+}
+.textofooter3 {
+    color: white;
+    font-size: 18px;
+    margin-left: 50px;
+    padding: 10px 10px 10px 2px;
+}
+
+.imagenscomlink {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* espaço entre os ícones */
+}
+
+.imagenscomlink img {
+    width: 30px;  /* tamanho dos ícones */
+    height: 30px;
+    cursor: pointer;
+}
+
+.imagenscomlink a:hover img {
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .textofooter1,
+    .textofooter2,
+    .textofooter3 {
+        margin: 0;
+        padding: 5px 0;
+        font-size: 14px;
+    }
+}
